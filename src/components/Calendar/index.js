@@ -1,35 +1,35 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { rangeShape } from '../DayCell';
-import Month from '../Month';
-import DateInput from '../DateInput';
-import { calcFocusDate, generateStyles, getMonthDisplayRange } from '../../utils';
 import classnames from 'classnames';
-import ReactList from 'react-list';
-import { shallowEqualObjects } from 'shallow-equal';
 import {
-  addMonths,
-  subMonths,
-  format,
-  eachDayOfInterval,
-  startOfWeek,
-  endOfWeek,
-  isSameDay,
-  addYears,
-  setYear,
-  setMonth,
-  differenceInCalendarMonths,
-  startOfMonth,
-  endOfMonth,
   addDays,
-  isSameMonth,
+  addMonths,
+  addYears,
+  differenceInCalendarMonths,
   differenceInDays,
-  min,
+  eachDayOfInterval,
+  endOfMonth,
+  endOfWeek,
+  format,
+  isSameDay,
+  isSameMonth,
   max,
+  min,
+  setMonth,
+  setYear,
+  startOfMonth,
+  startOfWeek,
+  subMonths,
 } from 'date-fns';
 import { enUS as defaultLocale } from 'date-fns/locale/en-US';
-import coreStyles from '../../styles';
+import PropTypes from 'prop-types';
+import React, { PureComponent } from 'react';
+import ReactList from 'react-list';
+import { shallowEqualObjects } from 'shallow-equal';
 import { ariaLabelsShape } from '../../accessibility';
+import coreStyles from '../../styles';
+import { calcFocusDate, generateStyles, getMonthDisplayRange } from '../../utils';
+import DateInput from '../DateInput';
+import { rangeShape } from '../DayCell';
+import Month from '../Month';
 
 class Calendar extends PureComponent {
   constructor(props, context) {
@@ -285,7 +285,7 @@ class Calendar extends PureComponent {
     return (
       <div className={styles.dateDisplayWrapper}>
         {ranges.map((range, i) => {
-          if (range.showDateDisplay === false || (range.disabled && !range.showDateDisplay))
+          if (range?.showDateDisplay === false || (range?.disabled && !range?.showDateDisplay))
             return null;
           return (
             <div
