@@ -416,9 +416,10 @@ class Calendar extends PureComponent {
     const isVertical = direction === 'vertical';
     const monthAndYearRenderer = navigatorRenderer || this.renderMonthAndYear;
 
+    let defaultColor = color ? color : '#3d91ff';
     const ranges = this.props.ranges.map((range, i) => ({
       ...range,
-      color: range.color || rangeColors[i] || color,
+      color: range?.color || rangeColors[i] || defaultColor,
     }));
     return (
       <div
